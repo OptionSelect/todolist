@@ -4,6 +4,7 @@ const app = express()
 const bodyParser = require('body-parser')
 
 var todos = []
+var completed = []
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,7 +18,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  todos.push(req.body.todo)
+  if (req.body.mark !== 'mark') {
+    todos.push(req.body.todo)
+  } else {
+    completed.push(req.body.todo)
+    console.log(completed)
+  }
   res.redirect('/')
 })
 

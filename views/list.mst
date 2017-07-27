@@ -13,8 +13,9 @@
     </form>
     <br>
     {{#todos}}
-      <p><button type="button" name="mark">Mark as Complete</button>{{.}}</p>
+      <form class="" action="/" method="post">
+        <p><button type="submit" name="mark">Mark as Complete</button> {{.}}</p>
+      </form>
     {{/todos}}
-    <h3>Completed Tasks</h3>
   </body>
 </html>
