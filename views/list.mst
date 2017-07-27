@@ -5,6 +5,33 @@
     <title>To Do List</title>
   </head>
   <body>
-
+    <h1>To Do...</h1>
+    <form class="" action="/" method="post">
+      <input type="text" name="input" value="">
+      <button type="submit" name="addtodo">Add To Do</button>
+      <br>
+      <p>
+        <button type="submit" name="mark">Mark as Complete</button>
+        TASK THAT WAS PASSED VIA POST
+      </p>
+      <p>
+        <button type="submit" name="mark">Mark as Complete</button>
+        TASK THAT WAS PASSED VIA POST
+      </p>
+      <p>
+        <button type="submit" name="mark">Mark as Complete</button>
+        TASK THAT WAS PASSED VIA POST
+      </p>
+      <p>
+        <button type="submit" name="mark">Mark as Complete</button>
+        TASK THAT WAS PASSED VIA POST
+      </p>
+    </form>
+    <br>
+    <h3>Completed Tasks</h3>
+    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
+    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
+    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
+    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
   </body>
 </html>

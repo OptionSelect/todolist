@@ -11,7 +11,7 @@ app.set('views', './views')
 app.set('view engine', 'mst')
 
 app.get('/', (req, res) => {
-  res.send('WE HAVE LIFTOFF')
+  res.render('list')
 })
 
 app.listen(3000, (req, res) => {
