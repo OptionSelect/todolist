@@ -3,6 +3,8 @@ const mustacheExpress = require('mustache-express')
 const app = express()
 const bodyParser = require('body-parser')
 
+var todos = []
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -11,7 +13,12 @@ app.set('views', './views')
 app.set('view engine', 'mst')
 
 app.get('/', (req, res) => {
-  res.render('list')
+  res.render('list', { todos: todos })
+})
+
+app.post('/', (req, res) => {
+  todos.push(req.body.todo)
+  res.redirect('/')
 })
 
 app.listen(3000, (req, res) => {

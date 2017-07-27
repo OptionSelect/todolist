@@ -8,31 +8,13 @@
     <h1>To Do...</h1>
     <br>
     <form class="" action="/" method="post">
-      <input type="text" name="input" value="">
+      <input type="text" name="todo" value="">
       <button type="submit" name="addtodo">Add To Do</button>
-
-      <p>
-        <button type="submit" name="mark">Mark as Complete</button>
-        TASK THAT WAS PASSED VIA POST
-      </p>
-      <p>
-        <button type="submit" name="mark">Mark as Complete</button>
-        TASK THAT WAS PASSED VIA POST
-      </p>
-      <p>
-        <button type="submit" name="mark">Mark as Complete</button>
-        TASK THAT WAS PASSED VIA POST
-      </p>
-      <p>
-        <button type="submit" name="mark">Mark as Complete</button>
-        TASK THAT WAS PASSED VIA POST
-      </p>
     </form>
     <br>
+    {{#todos}}
+      <p><button type="button" name="mark">Mark as Complete</button>{{.}}</p>
+    {{/todos}}
     <h3>Completed Tasks</h3>
-    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
-    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
-    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
-    <p>TASK THAT WAS PASSED FROM POST OF COMPLETION BUTTON</p>
   </body>
 </html>
