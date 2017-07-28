@@ -5,17 +5,22 @@
     <title>To Do List</title>
   </head>
   <body>
-    <h1>To Do...</h1>
-    <br>
-    <form class="" action="/" method="post">
+    <h2>To Do List!</h2>
+    <form class="" action="/add" method="post">
       <input type="text" name="todo" value="">
-      <button type="submit" name="addtodo">Add To Do</button>
-    </form>
+      <button type="submit" name="addtodo">Add Item</button>
     <br>
+    </form>
+    <h3>Currently Active</h3>
     {{#todos}}
-      <form class="" action="/" method="post">
-        <p><button type="submit" name="mark">Mark as Complete</button> {{.}}</p>
+    <form class="" action="/completed" method="post">
+      <p><button type="submit" name="mark">Mark as Complete</button>
+      <input type="text" name="marked" value="{{.}}"></p>
       </form>
     {{/todos}}
+    <h3>Completed</h3>
+    {{#completed}}
+      <p><strike>{{.}}</strike></p>
+    {{/completed}}
   </body>
 </html>
