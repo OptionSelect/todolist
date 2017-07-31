@@ -7,20 +7,20 @@
   <body>
     <h2>To Do List!</h2>
     <form class="" action="/add" method="post">
-      <input type="text" name="todo" value="">
+      <input type="text" name="todos" value="">
       <button type="submit" name="addtodo">Add Item</button>
     <br>
     </form>
     <h3>Currently Active</h3>
-    {{#todos}}
+    {{#todosOpen}}
     <form class="" action="/completed" method="post">
       <p><button type="submit" name="mark">Mark as Complete</button>
       <input type="text" name="marked" value="{{.}}"></p>
       </form>
-    {{/todos}}
+    {{/todosOpen}}
     <h3>Completed</h3>
-    {{#completed}}
+    {{#todosClosed}}
       <p><strike>{{.}}</strike></p>
-    {{/completed}}
+    {{/todosClosed}}
   </body>
 </html>

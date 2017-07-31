@@ -2,8 +2,9 @@ const express = require('express')
 const mustacheExpress = require('mustache-express')
 const app = express()
 const bodyParser = require('body-parser')
-var todos = []
-var completed = []
+const expressSession = require('express-session')
+
+app.use(expressSession({ secret: 'fooberry', resave: false, saveUninitialized: true }))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -13,20 +14,35 @@ app.set('views', './views')
 app.set('view engine', 'mst')
 
 app.get('/', (req, res) => {
-  res.render('list', { todos: todos, completed: completed })
+  const todosOpen = req.session.todosOpen || []
+  const todosClosed = req.session.todosClosed || []
+  res.render('list', { todosOpen, todosClosed })
 })
 
 app.post('/add', (req, res) => {
-  todos.push(req.body.todo)
+  const todosOpen = req.session.todosOpen || []
+  const todosClosed = req.session.todosClosed || []
+
+  req.session.todosOpen = todosOpen
+
+  todosOpen.push(req.body.todos)
+
+  console.log('OPEN: ' + todosOpen)
+
   res.redirect('/')
 })
 
 app.post('/completed', (req, res) => {
-  var i = todos.indexOf(req.body.marked)
+  const todosOpen = req.session.todosOpen || []
+  const todosClosed = req.session.todosClosed || []
+
+  var i = todosOpen.indexOf(req.body.marked)
   if (i != -1) {
-    todos.splice(i, 1)
-    completed.push(req.body.marked)
+    todosOpen.splice(i, 1)
+    todosClosed.push(req.body.marked)
   }
+  console.log('CLOSED: ' + todosClosed)
+  req.session.todosClosed = todosClosed
   res.redirect('/')
 })
 
